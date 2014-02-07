@@ -77,7 +77,13 @@ public class deckerbd_hw1 {
 	}
 	
 	public static void searchAndPrintToScreen(){
-		
+		System.out.print("Enter search value of type 'int': ");
+		int i = keyboard.nextInt();
+		for(int j=0; (i<binaryIntList.size()); i++){
+			if(binaryIntList.get(j).intValue()==i){
+				//return this entry
+			}
+		}
 	}
 	
 	public static void searchAndSaveToBinary(){
