@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.awt.*;
 
 public class deckerbd_hw1 {
 	static Scanner keyboard = new Scanner(System.in);
@@ -12,6 +11,7 @@ public class deckerbd_hw1 {
 	static ArrayList<Character> binaryCharList = new ArrayList<Character>();
 	static ArrayList<Integer> binaryIntList = new ArrayList<Integer>();
 	static ArrayList<Double> binaryDoubleList = new ArrayList<Double>();
+	static int binaryListSize = 0;
 	//static DataOutputStream outStream;
 	//static DataInputStream inStream;
 	
@@ -23,22 +23,31 @@ public class deckerbd_hw1 {
 		binaryFileName = keyboard.next();
 		try{
 			schemaFile = new File(schemaFileName);
-			//binaryFile = new File(binaryFileName);
-			//BufferedReader br = new BufferedReader(new FileReader(schemaFileName));
 			Scanner scanner = new Scanner(schemaFile);
-			//String line = br.readLine();
 			int i = 1;
 			while(scanner.hasNext()){
 				String line = scanner.next();
 				System.out.println("Add No."+i+": "+line);
 				schema.add(new String(line.toString()));
 			}
-			//br.close();
-			scanner.close();
+			scanner.close();			
 		} catch(Exception e){
 			e.printStackTrace();
 		}
+		genBinaryLists();
 		printMainMenu();
+	}
+	
+	public static void genBinaryLists(){
+		try{
+			binaryFile = new File(binaryFileName);
+			DataInputStream stream = new DataInputStream(new FileInputStream(binaryFile));
+			/*while(){
+			}*/
+			stream.close();
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	public static void printSchema(){
@@ -50,7 +59,17 @@ public class deckerbd_hw1 {
 	}
 	
 	public static void printBinaryToScreen(){
-		
+		/*int stringNum = 0;
+		int intNum = 0;
+		int charNum = 0;
+		for(int i=0; (i<binaryListSize); i++){
+			for(int j = 0; (j<schema.size()); j++){
+				String temp = schema.get(j);
+				if(temp.charAt(0).equals('i')){
+					System.out.print();
+				}
+			}
+		}*/
 	}
 	
 	public static void printBinaryToText(){
@@ -62,6 +81,10 @@ public class deckerbd_hw1 {
 	}
 	
 	public static void searchAndSaveToBinary(){
+		
+	}
+	
+	public static void printThings(PrintStream printStream){
 		
 	}
 	
@@ -82,6 +105,9 @@ public class deckerbd_hw1 {
 		System.out.println(selected);
 		if(selected==1){
 			printSchema();
+		}
+		else if(selected==6){
+			System.exit(0);
 		}
 		else{
 			getChoice();
